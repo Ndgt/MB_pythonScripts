@@ -1,3 +1,1 @@
-# mb-pythonscripts
-
-Describe your project here.
+## Original Python Scripts for MotionBuilder
