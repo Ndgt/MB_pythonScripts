@@ -9,7 +9,6 @@ for prop in chara.PropertyList:
             for j in range(len(prop)):
                 group.ConnectSrc(prop[j])
 
-
 if len(group.Items) > 0:
     FBMessageBox("Character Successfully Confirmed","Check group in Resources Window >> Groups","OK")
 
