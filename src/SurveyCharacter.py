@@ -44,12 +44,13 @@ try:
                 group.ConnectSrc(mesh)
 
 
-
         FBMessageBox("Result", 
                     "Bone number : " + BoneNum(chara) + "\n" \
                     "Reference : " + isSetReference(chara),
                     "OK")
 
+        MakeCharacterSkeletonGroup(chara)
+        MakeCharacterMeshGroup(chara)
         FBMessageBox("Result","Character Skeleton group / Mesh group Created.\nCheck it in Resources Window >> Groups","OK")
 
 except:
