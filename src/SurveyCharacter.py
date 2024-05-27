@@ -17,7 +17,7 @@ try:
 
         '''
         # 下のコードでも同様にグループ化が可能
-        def MakeCharacterSkeletonGroup2(chara):
+        def MakeCharacterSkeletonGroup(chara):
             group = FBGroup("CharacterSkeleton")            
             BodyNodeIdList = list(vars(FBBodyNodeId)["values"].values())
             for id in BodyNodeIdList:
