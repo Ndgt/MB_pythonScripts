@@ -50,8 +50,7 @@ try:
                     "Reference : " + isSetReference(chara),
                     "OK")
 
-        if Group(chara):
-            FBMessageBox("Result","Character Skeleton group / Mesh group Created.\nCheck it in Resources Window >> Groups","OK")
+        FBMessageBox("Result","Character Skeleton group / Mesh group Created.\nCheck it in Resources Window >> Groups","OK")
 
 except:
     FBMessageBox("Cauton", "Error : Select a Charater", "OK")
