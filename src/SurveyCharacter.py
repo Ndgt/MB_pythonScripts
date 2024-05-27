@@ -58,10 +58,10 @@ SkeletonNodeId_CharacterPropertyName = {
 
 
 
-def boneNum(chara):
+def BoneNum(chara):
     returnNum = 0
     for prop in chara.PropertyList:
-        if prop.Name.endswith("Link") and len(prop) >= 0:
+        if prop.Name.endswith("Link") and len(prop) > 0:
             returnNum += 1
     return returnNum
 
