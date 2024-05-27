@@ -93,6 +93,9 @@ try:
                     + "ShapeKey number : " + ShapeKey(chara, "Num") + "\n" \
                     + "ShapeKey in Muletiple Model : " + ShapeKey(chara, "InMultipleModel") + "\n" \
                     + "Reference : " + isSetReference(chara), "OK")
+        
+        # メモリ解放
+        del(chara, meshList)
 
 # 実行時にcharacterが選択されていなかったらエラーを表示
 except:
