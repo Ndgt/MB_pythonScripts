@@ -38,11 +38,11 @@ try:
         '''
 
         def MakeCharacterMeshGroup(chara):
-            group = FBGroup("ChracterMesh")
-            mList = FBModelList()
-            for mesh in chara.GetSkinModelList(mList):
+            group = FBGroup("CharacterMesh")
+            meshList = FBModelList()
+            chara.GetSkinModelList(meshList)
+            for mesh in meshList:
                 group.ConnectSrc(mesh)
-
 
         FBMessageBox("Result", 
                     "Bone number : " + BoneNum(chara) + "\n" \
@@ -51,7 +51,8 @@ try:
 
         MakeCharacterSkeletonGroup(chara)
         MakeCharacterMeshGroup(chara)
-        FBMessageBox("Result","Character Skeleton group / Mesh group Created.\nCheck it in Resources Window >> Groups","OK")
+        FBMessageBox("Result","Character Skeleton group / Mesh group Created.\n \
+                     Check them in Resources Window >> Groups","OK")
 
 except:
     FBMessageBox("Cauton", "Error : Select a Charater", "OK")
