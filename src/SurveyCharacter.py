@@ -49,26 +49,32 @@ try:
             else:
                 return "not set"
 
-        def ShapeKeyNum(chara):
+        def ShapeKey(chara, option):
             ShapeKeyList = list()
-            ModelNum = 1
+            count = 0
             for mesh in meshList:
                 geo = mesh.Geometry
                 for i in range(geo.ShapeGetCount()):
                     name = geo.ShapeGetName(i)
                     if not name in ShapeKeyList:
                         ShapeKeyList.append(name)
-                        if not mesh == meshList[0]:
-                            ModelNum += 1
-            return [str(len(ShapeKeyList)), ModelNum]
-
-
+                    else:
+                        count += 1
+            if option == "Num":
+                print(ShapeKeyList)
+                return str(len(ShapeKeyList))
+            
+            if option == "InMultipleModel":
+                if count > 1: 
+                    return "Yes"
+                else:
+                    return "No"
+                
         FBMessageBox("Result", 
                       "Bone number : " + BoneNum(chara) + "\n" \
-                    + "ShapeKey number : " + ShapeKeyNum(chara)[0] + "\n" \
-                    + "Model number contains shapekey : " + ShapeKeyNum(chara)[1] + "\n" \
+                    + "ShapeKey number : " + ShapeKey(chara, "Num") + "\n" \
+                    + "ShapeKey in Muletiple Model : " + ShapeKey(chara, "InMultipleModel") + "\n" \
                     + "Reference : " + isSetReference(chara), "OK")
-
-
+        
 except:
     FBMessageBox("Cauton", "Error : Select a Charater", "OK")
