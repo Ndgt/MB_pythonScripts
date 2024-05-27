@@ -26,14 +26,14 @@ try:
                     group.ConnectSrc(model)
         '''
 
-        # メッシュを格納するリスト（FBModelList型）を宣言
-        meshList = FBModelList()
+        # メッシュを格納するリスト（FBModelList型）を宣言 
+        meshList = FBModelList() 
 
         # キャラクタライズされたモデルのメッシュをグループ化
         def MakeCharacterMeshGroup(chara):
             groupname = chara.Name + "/Mesh" 
             group = FBGroup(groupname)
-            chara.GetSkinModelList(meshList)
+            chara.GetSkinModelList(meshList) # このメソッドでFBModelList型が必要になる
             for mesh in meshList:
                 group.ConnectSrc(mesh)
 
@@ -77,7 +77,6 @@ try:
 
             # 全てのシェイプキーの数を返す
             if option == "Num":
-                print(ShapeKeyList)
                 return str(len(ShapeKeyList))
             
             # 複数メッシュにまたがるシェイプキーがあったのならYesを返す
