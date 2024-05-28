@@ -1,6 +1,6 @@
 from pyfbsdk import*
 
-# ƒLƒƒƒ‰ƒNƒ^ƒ‰ƒCƒY‚ÉŽg—p‚³‚ê‚Ä‚¢‚éƒ{[ƒ“‚ðƒOƒ‹[ƒv‰»
+# ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ©ã‚¤ã‚ºã«ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹ãƒœãƒ¼ãƒ³ã‚’ã‚°ãƒ«ãƒ¼ãƒ—åŒ–
 def SkeletonGroup(chara:FBCharacter, option = None):
     slist = FBModelList()
     for prop in chara.PropertyList:
@@ -14,8 +14,7 @@ def SkeletonGroup(chara:FBCharacter, option = None):
         for model in slist:
             group.ConnectSrc(model)
 
-
-# ƒLƒƒƒ‰ƒNƒ^ƒ‰ƒCƒY‚³‚ê‚½ƒ‚ƒfƒ‹‚ÌƒƒbƒVƒ…‚ðƒOƒ‹[ƒv‰»
+# ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ©ã‚¤ã‚ºã•ã‚ŒãŸãƒ¢ãƒ‡ãƒ«ã®ãƒ¡ãƒƒã‚·ãƒ¥ã‚’ã‚°ãƒ«ãƒ¼ãƒ—åŒ–
 def MeshGroup(chara:FBCharacter, option = None):
     meshList = FBModelList()
     chara.GetSkinModelList(meshList) 
@@ -27,8 +26,7 @@ def MeshGroup(chara:FBCharacter, option = None):
         for mesh in meshList:
             group.ConnectSrc(mesh)
 
-
-# ƒLƒƒƒ‰ƒNƒ^ƒ‰ƒCƒY‚³‚ê‚½ƒ‚ƒfƒ‹“à‚Ì‘S‚Ä‚Ìƒ{[ƒ“‚Ì”‚ð”‚¦‚é
+# ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ©ã‚¤ã‚ºã•ã‚ŒãŸãƒ¢ãƒ‡ãƒ«å†…ã®å…¨ã¦ã®ãƒœãƒ¼ãƒ³ã®æ•°ã‚’æ•°ãˆã‚‹
 def BoneNum(chara:FBCharacter) -> int:
     returnNum = 0
     for prop in chara.PropertyList:
@@ -36,7 +34,7 @@ def BoneNum(chara:FBCharacter) -> int:
             returnNum += 1
     return returnNum
 
-# Character‚ÌReference‚É‰½‚©‚µ‚çŠ„‚è“–‚Ä‚³‚ê‚Ä‚¢‚é‚©Šm”F
+# Characterã®Referenceã«ä½•ã‹ã—ã‚‰å‰²ã‚Šå½“ã¦ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
 def isSetReference(chara:FBCharacter) -> bool:
     prop = chara.PropertyList.Find("ReferenceLink")
     if len(prop) > 0:
@@ -44,61 +42,63 @@ def isSetReference(chara:FBCharacter) -> bool:
     else:
         return False
 
-
-# ƒLƒƒƒ‰ƒNƒ^ƒ‰ƒCƒY‚³‚ê‚½ƒ‚ƒfƒ‹‚ÌƒVƒFƒCƒvƒL[‚É‚Â‚¢‚Ä’²‚×‚é
+# ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ©ã‚¤ã‚ºã•ã‚ŒãŸãƒ¢ãƒ‡ãƒ«ã®ã‚·ã‚§ã‚¤ãƒ—ã‚­ãƒ¼ã«ã¤ã„ã¦èª¿ã¹ã‚‹
 def ShapeKey(chara:FBCharacter, option):
     ShapeKeyList = list()
     meshList = FBModelList()
     chara.GetSkinModelList(meshList)
     count = 0
     for mesh in meshList:
-        # ŠeƒƒbƒVƒ…‚É‚Â‚¢‚ÄAV‚µ‚­ƒVƒFƒCƒvƒL[‚ðŒŸo‚µ‚½‚çƒŠƒXƒg‚É‰Á‚¦‚é
+        # å„ãƒ¡ãƒƒã‚·ãƒ¥ã«ã¤ã„ã¦ã€æ–°ã—ãã‚·ã‚§ã‚¤ãƒ—ã‚­ãƒ¼ã‚’æ¤œå‡ºã—ãŸã‚‰ãƒªã‚¹ãƒˆã«åŠ ãˆã‚‹
         geo = mesh.Geometry
         for i in range(geo.ShapeGetCount()):
             name = geo.ShapeGetName(i)
             if not name in ShapeKeyList:
                 ShapeKeyList.append(name)
-            # Šù‚ÉƒŠƒXƒg‚É“o˜^Ï‚Ý‚ÌƒVƒFƒCƒvƒL[‚ðŒŸo‚µ‚½‚çcount‚ð‘‚â‚·
+            # æ—¢ã«ãƒªã‚¹ãƒˆã«ç™»éŒ²æ¸ˆã¿ã®ã‚·ã‚§ã‚¤ãƒ—ã‚­ãƒ¼ã‚’æ¤œå‡ºã—ãŸã‚‰countã‚’å¢—ã‚„ã™
             else:
                 count += 1
 
-    # ‘S‚Ä‚ÌƒVƒFƒCƒvƒL[‚Ì”‚ð•Ô‚·
+    # å…¨ã¦ã®ã‚·ã‚§ã‚¤ãƒ—ã‚­ãƒ¼ã®æ•°ã‚’è¿”ã™
     if option == "Num":
         return len(ShapeKeyList)
     
-    # •¡”ƒƒbƒVƒ…‚É‚Ü‚½‚ª‚éƒVƒFƒCƒvƒL[‚ª‚ ‚Á‚½‚Ì‚È‚çTrue‚ð•Ô‚·
+    # è¤‡æ•°ãƒ¡ãƒƒã‚·ãƒ¥ã«ã¾ãŸãŒã‚‹ã‚·ã‚§ã‚¤ãƒ—ã‚­ãƒ¼ãŒã‚ã£ãŸã®ãªã‚‰Trueã‚’è¿”ã™
     if option == "InMultipleModel":
         if count > 1: 
             return True
         else:
             return False
 
-
-if __name__ == "__main__":
+if __name__ in ("__main__", "builtins"):
     chara = FBApplication().CurrentCharacter
-    if chara == None:
+    if chara is None:
         FBMessageBox("Cauton", "Error : Select a Charater", "OK")
         del(chara)
-
     else:
-        SkeletonGroup(chara, "g")
-        MeshGroup(chara, "g")
-        FBMessageBox("Result",
-                        "Character Skeleton group / Mesh group Created." + "\n" + \
-                        "Check them in Resources Window >> Groups","OK")
+        try:
+            SkeletonGroup(chara, "g")
+            MeshGroup(chara, "g")
+            FBMessageBox("Result",
+                            "Character Skeleton group / Mesh group Created." + "\n" + \
+                            "Check them in Resources Window >> Groups","OK")
 
-        BoneNumResult = BoneNum(chara)        
-        ShapeNumResult = ShapeKey(chara,"Num")
-        multiResult = "No"
-        if ShapeKey(chara, "InMultipleModel"): multiResult = "Yes"
-        refResult = "No"
-        if isSetReference(chara): refResult = "Yes"
+            BoneNumResult = str(BoneNum(chara))
+            ShapeNumResult = str(ShapeKey(chara,"Num"))
+            multiResult = "No"
+            if ShapeKey(chara, "InMultipleModel"): multiResult = "Yes"
+            refResult = "No"
+            if isSetReference(chara): refResult = "Yes"
 
-        FBMessageBox("Result", 
-                      "Bone number : " + BoneNumResult + "\n" \
-                    + "ShapeKey number : " + ShapeNumResult + "\n" \
-                    + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
-                    + "Reference : " + refResult,
-                     "OK")
+            FBMessageBox("Result", 
+                        "Bone number : " + BoneNumResult + "\n" \
+                        + "ShapeKey number : " + ShapeNumResult + "\n" \
+                        + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
+                        + "Reference : " + refResult,
+                        "OK")
         
-        del(chara, BoneNumResult, ShapeNumResult, multiResult, refResult)
+        except Exception as err:
+            FBMessageBox("caution", "An Error Occurred : {}".format(err), "OK") 
+
+        finally:
+            del(chara, BoneNumResult, ShapeNumResult, multiResult, refResult)
