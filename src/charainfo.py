@@ -1,5 +1,14 @@
 from pyfbsdk import*
 
+def checkExistinGroup():
+    for cha in FBSystem().Scene.Characters:
+        for grp in FBSystem().Scene.Groups:
+            if grp.Name in (cha.Name + "/Skeleton", cha.Name + "/Mesh"):
+                FBMessageBox("Caution","Some group might already exists...","OK")
+                return True  
+    else:
+        return False
+
 def SkeletonGroup(chara:FBCharacter, option = None):
     slist = FBModelList()
     for prop in chara.PropertyList:
@@ -70,7 +79,7 @@ def SurveyAll():
     if chara is None:
         FBMessageBox("Cauton", "Error : Select a Charater", "OK")
         del(chara)
-    else:
+    elif not checkExistinGroup():
         try:
             SkeletonGroup(chara, "g")
             MeshGroup(chara, "g")
@@ -99,13 +108,12 @@ def SurveyAll():
             del(chara, BoneNumResult, ShapeNumResult, multiResult, refResult)
 
 
-
 if __name__ in ("__main__", "builtins"):
     chara = FBApplication().CurrentCharacter
     if chara is None:
         FBMessageBox("Cauton", "Error : Select a Charater", "OK")
         del(chara)
-    else:
+    elif not checkExistinGroup():
         try:
             SkeletonGroup(chara, "g")
             MeshGroup(chara, "g")
