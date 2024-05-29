@@ -40,7 +40,7 @@ def CreateMenu(viewerMenuwgt, displayGeo):
     h = displayGeo.bottom()-displayGeo.top()
     button.setGeometry(x,y,w,h)
     button.clicked.connect(charainfo.SurveyAll)
-    button.setStyleSheet("background-color:#ADD8E6;")
+    button.setStyleSheet("color: black; background-color:#ADD8E6;")
     button.show()
 
 main()
