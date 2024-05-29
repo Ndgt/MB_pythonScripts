@@ -11,7 +11,7 @@ except:
 
 
 def main():
-    for win in QApplication.topLevelWidgets():
+    for win in QApplication.topLevelWidgets():  
         if win.accessibleName() == "Mainboard":
             for dwgt in win.findChildren(QDockWidget):
                 if dwgt.windowTitle() == "Viewer":
