@@ -135,8 +135,8 @@ if __name__ in ("__main__", "builtins"):
             MeshGroup(chara, "g")
             FBMessageBox("Result",
                             "These two groups created." + "\n" + \
-                            "-" + FBSystem().Scene.Characters[-1].Name + "\n" + \
-                            "-" + FBSystem().Scene.Characters[-2].Name + "\n" + \
+                            "-" + FBSystem().Scene.Groups[-1].Name + "\n" + \
+                            "-" + FBSystem().Scene.Groups[-2].Name + "\n" + \
                             "Check them in Resources Window >> Groups","OK")
         
         except Exception as err:
