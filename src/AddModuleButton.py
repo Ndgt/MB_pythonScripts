@@ -1,6 +1,7 @@
 from pyfbsdk import FBMessageBox
+import charainfo
 
-try:
+try:    
     from PySide6.QtCore import*
     from PySide6.QtWidgets import*
 
@@ -8,14 +9,16 @@ except:
     from PySide2.QtCore import*
     from PySide2.QtWidgets import*    
 
-for win in QApplication.topLevelWidgets():
-    if win.accessibleName() == "Mainboard":
-        break
-for dwgt in win.findChildren(QDockWidget):
-    if dwgt.windowTitle() == "Viewer":
-        break
 
-def getMenuwgtInfo(wgt:QDockWidget):
+def main():
+    for win in QApplication.topLevelWidgets():
+        if win.accessibleName() == "Mainboard":
+            for dwgt in win.findChildren(QDockWidget):
+                if dwgt.windowTitle() == "Viewer":
+                    GetMenuwgtInfo(dwgt)
+
+
+def GetMenuwgtInfo(wgt:QDockWidget):
     lymng = wgt.layout()
     for i in range(lymng.count()):
         for childwgt in lymng.itemAt(i).widget().children():
@@ -26,22 +29,17 @@ def getMenuwgtInfo(wgt:QDockWidget):
                         for menu in viewerMenuwgt.findChildren(QWidget):
                             if menu.accessibleName() == "Display":
                                 displayGeo = menu.geometry()
-                                return viewerMenuwgt, displayGeo
+                                CreateMenu(viewerMenuwgt,displayGeo)
+                                
 
-
-def HelloWorld():
-    FBMessageBox("Viewer Button", "Viewer Button has clicked!", "OK")
-
-
-viewerMenuwgt, displayGeo = getMenuwgtInfo(dwgt)
-color = ["FF0000","FFA500","FFFF00","008000","00FFFF","0000FF","800080"]
-for i , code in enumerate(color, 1):
+def CreateMenu(viewerMenuwgt, displayGeo):
     button = QPushButton("Hello",viewerMenuwgt)
-    w = 60
-    x = displayGeo.right() + 80 + (w+5)*(i-1)
+    x = displayGeo.right() + 80
     y = displayGeo.top()
+    w = 70
     h = displayGeo.bottom()-displayGeo.top()
     button.setGeometry(x,y,w,h)
-    button.clicked.connect(HelloWorld)
-    button.setStyleSheet("background-color:#{};".format(code))
+    button.clicked.connect(charainfo.SurveyAll)
     button.show()
+
+main()

@@ -86,6 +86,18 @@ try:
                 else:
                     return "No"
         
+        def all():
+            MakeCharacterSkeletonGroup(chara)
+            MakeCharacterMeshGroup(chara)
+            FBMessageBox("Result",
+                        "Character Skeleton group / Mesh group Created." + "\n" + \
+                        "Check them in Resources Window >> Groups","OK")
+            FBMessageBox("Result", 
+                        "Bone number : " + BoneNum(chara) + "\n" \
+                        + "ShapeKey number : " + ShapeKey(chara, "Num") + "\n" \
+                        + "ShapeKey in Muletiple Model : " + ShapeKey(chara, "InMultipleModel") + "\n" \
+                        + "Reference : " + isSetReference(chara), "OK")            
+
         # Às‚µAŒ‹‰Ê‚ğ•\¦
         FBMessageBox("Result", 
                       "Bone number : " + BoneNum(chara) + "\n" \
