@@ -62,6 +62,9 @@ def ShapeKey(chara:FBCharacter, option):
             return False
         
 
+########################
+# if called by UI button
+########################
 def SurveyAll():
     chara = FBApplication().CurrentCharacter
     SkeletonGroup(chara, "g")
@@ -82,7 +85,8 @@ def SurveyAll():
                 + "ShapeKey number : " + ShapeNumResult + "\n" \
                 + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
                 + "Reference : " + refResult,
-                "OK")     
+                "OK")
+    del(chara,BoneNumResult,ShapeNumResult,refResult)
 
 
 if __name__ in ("__main__", "builtins"):
