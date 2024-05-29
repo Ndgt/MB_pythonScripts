@@ -81,12 +81,6 @@ def SurveyAll():
         del(chara)
     elif not checkExistinGroup():
         try:
-            SkeletonGroup(chara, "g")
-            MeshGroup(chara, "g")
-            FBMessageBox("Result",
-                            "Character Skeleton group / Mesh group Created." + "\n" + \
-                            "Check them in Resources Window >> Groups","OK")
-
             BoneNumResult = str(BoneNum(chara))
             ShapeNumResult = str(ShapeKey(chara,"Num"))
             multiResult = "No"
@@ -100,7 +94,15 @@ def SurveyAll():
                         + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
                         + "Reference : " + refResult,
                         "OK")
-        
+
+            SkeletonGroup(chara, "g")
+            MeshGroup(chara, "g")
+            FBMessageBox("Result",
+                            "These two groups created." + "\n" + \
+                            "-" + FBSystem().Scene.Characters[-1].Name + "\n" + \
+                            "-" + FBSystem().Scene.Characters[-2].Name + "\n" + \
+                            "Check them in Resources Window >> Groups","OK")
+
         except Exception as err:
             FBMessageBox("caution", "An Error Occurred : {}".format(err), "OK") 
 
@@ -115,12 +117,6 @@ if __name__ in ("__main__", "builtins"):
         del(chara)
     elif not checkExistinGroup():
         try:
-            SkeletonGroup(chara, "g")
-            MeshGroup(chara, "g")
-            FBMessageBox("Result",
-                            "Character Skeleton group / Mesh group Created." + "\n" + \
-                            "Check them in Resources Window >> Groups","OK")
-
             BoneNumResult = str(BoneNum(chara))
             ShapeNumResult = str(ShapeKey(chara,"Num"))
             multiResult = "No"
@@ -134,6 +130,14 @@ if __name__ in ("__main__", "builtins"):
                         + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
                         + "Reference : " + refResult,
                         "OK")
+
+            SkeletonGroup(chara, "g")
+            MeshGroup(chara, "g")
+            FBMessageBox("Result",
+                            "These two groups created." + "\n" + \
+                            "-" + FBSystem().Scene.Characters[-1].Name + "\n" + \
+                            "-" + FBSystem().Scene.Characters[-2].Name + "\n" + \
+                            "Check them in Resources Window >> Groups","OK")
         
         except Exception as err:
             FBMessageBox("caution", "An Error Occurred : {}".format(err), "OK") 
