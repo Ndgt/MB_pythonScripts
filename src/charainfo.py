@@ -67,26 +67,37 @@ def ShapeKey(chara:FBCharacter, option):
 ########################
 def SurveyAll():
     chara = FBApplication().CurrentCharacter
-    SkeletonGroup(chara, "g")
-    MeshGroup(chara, "g")
-    FBMessageBox("Result",
-                    "Character Skeleton group / Mesh group Created." + "\n" + \
-                    "Check them in Resources Window >> Groups","OK")
+    if chara is None:
+        FBMessageBox("Cauton", "Error : Select a Charater", "OK")
+        del(chara)
+    else:
+        try:
+            SkeletonGroup(chara, "g")
+            MeshGroup(chara, "g")
+            FBMessageBox("Result",
+                            "Character Skeleton group / Mesh group Created." + "\n" + \
+                            "Check them in Resources Window >> Groups","OK")
 
-    BoneNumResult = str(BoneNum(chara))
-    ShapeNumResult = str(ShapeKey(chara,"Num"))
-    multiResult = "No"
-    if ShapeKey(chara, "InMultipleModel"): multiResult = "Yes"
-    refResult = "No"
-    if isSetReference(chara): refResult = "Yes"
+            BoneNumResult = str(BoneNum(chara))
+            ShapeNumResult = str(ShapeKey(chara,"Num"))
+            multiResult = "No"
+            if ShapeKey(chara, "InMultipleModel"): multiResult = "Yes"
+            refResult = "No"
+            if isSetReference(chara): refResult = "Yes"
 
-    FBMessageBox("Result", 
-                "Bone number : " + BoneNumResult + "\n" \
-                + "ShapeKey number : " + ShapeNumResult + "\n" \
-                + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
-                + "Reference : " + refResult,
-                "OK")
-    del(chara,BoneNumResult,ShapeNumResult,refResult)
+            FBMessageBox("Result", 
+                        "Bone number : " + BoneNumResult + "\n" \
+                        + "ShapeKey number : " + ShapeNumResult + "\n" \
+                        + "ShapeKey in Muletiple Model : " + multiResult + "\n" \
+                        + "Reference : " + refResult,
+                        "OK")
+        
+        except Exception as err:
+            FBMessageBox("caution", "An Error Occurred : {}".format(err), "OK") 
+
+        finally:
+            del(chara, BoneNumResult, ShapeNumResult, multiResult, refResult)
+
 
 
 if __name__ in ("__main__", "builtins"):
