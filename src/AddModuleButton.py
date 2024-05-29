@@ -33,13 +33,14 @@ def GetMenuwgtInfo(wgt:QDockWidget):
                                 
 
 def CreateMenu(viewerMenuwgt, displayGeo):
-    button = QPushButton("Hello",viewerMenuwgt)
+    button = QPushButton("charainfo",viewerMenuwgt)
     x = displayGeo.right() + 80
     y = displayGeo.top()
     w = 70
     h = displayGeo.bottom()-displayGeo.top()
     button.setGeometry(x,y,w,h)
     button.clicked.connect(charainfo.SurveyAll)
+    button.setStyleSheet("background-color:#ADD8E6;")
     button.show()
 
 main()
