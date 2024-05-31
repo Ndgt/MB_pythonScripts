@@ -12,9 +12,11 @@ except:
 
 
 for wgt in QApplication.topLevelWidgets():
-    if type(wgt) == PySide6.QtWidgets.QMenu:
+    if type(wgt) == PySide6.QtWidgets.QMenu and wgt.title() == "Help":
         print(wgt.title().rjust(20),type(wgt))
-
+        for j in wgt.actions():
+            print(j.text())
+        break
     if type(wgt) == PySide6.QtWidgets.QLabel:
         print(wgt.text().rjust(20),type(wgt))
     
