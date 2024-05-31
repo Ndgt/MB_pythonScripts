@@ -1,4 +1,3 @@
-import pyfbsdk
 from pyfbsdk import*
 
 def displayShapeList(model):
@@ -19,3 +18,19 @@ def SearchShapes(model):
             SearchShapes(child)
             
 SearchShapes(FBSystem().Scene.RootModel)
+
+
+
+def ShapeKey(chara:FBCharacter, option):
+    ShapeKeyList = list()
+    meshList = FBModelList()
+    chara.GetSkinModelList(meshList)
+    count = 0
+    for mesh in meshList:
+        geo = mesh.Geometry
+        for i in range(geo.ShapeGetCount()):
+            name = geo.ShapeGetName(i)
+            if not name in ShapeKeyList:
+                ShapeKeyList.append(name)
+            else:
+                count += 1

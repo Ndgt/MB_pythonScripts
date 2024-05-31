@@ -10,17 +10,17 @@ systemUIIdle.RemoveAll()
 
 check = -1
 def AddPathToOriginals(arg1:FBSystem, arg2:FBEvent):
-    # Ä“xAddPathToOriginalsŠÖ”‚ªÀs‚³‚ê‚½‚Ì‚½‚ß‚Écheck‚Ì’l‚Å•ªŠò
+    # å†åº¦AddPathToOriginalsé–¢æ•°ãŒå®Ÿè¡Œã•ã‚ŒãŸæ™‚ã®ãŸã‚ã«checkã®å€¤ã§åˆ†å²
     global check
     if check == -1:
         check = 0
 
-        # Œ»İ‚ÌƒpƒX‚ğæ“¾i”z•zƒvƒ‰ƒOƒCƒ“‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚à‚ç‚¤w’èæj
+        # ç¾åœ¨ã®ãƒ‘ã‚¹ã‚’å–å¾—ï¼ˆé…å¸ƒãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã‚‚ã‚‰ã†æŒ‡å®šå…ˆï¼‰
         CurrentFilePath = inspect.currentframe().f_code.co_filename
         CurrentDir = os.path.dirname(CurrentFilePath)
 
-        # w’èæƒtƒHƒ‹ƒ_‰º‚É‚¨‚¢‚Ä‚¢‚éApath‚ğ’Ç‰Á‚µ‚½‚¢ƒtƒHƒ‹ƒ_‚Ö‚Æƒ‚ƒWƒ…[ƒ‹ŒŸõƒpƒX‚ğ’Ê‚·  
-        # ‚±‚±‚Å‚ÍOriginalSctipts‚Æ‚µ‚Ä‚¢‚Ü‚·
+        # æŒ‡å®šå…ˆãƒ•ã‚©ãƒ«ãƒ€ä¸‹ã«ãŠã„ã¦ã„ã‚‹ã€pathã‚’è¿½åŠ ã—ãŸã„ãƒ•ã‚©ãƒ«ãƒ€ã¸ã¨ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«æ¤œç´¢ãƒ‘ã‚¹ã‚’é€šã™  
+        # ã“ã“ã§ã¯OriginalSctiptsã¨ã—ã¦ã„ã¾ã™
         targetPath = os.path.join(CurrentDir,"OriginalScripts")
         sys.path.append(targetPath)
 

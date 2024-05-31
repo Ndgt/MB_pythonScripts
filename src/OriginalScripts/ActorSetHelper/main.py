@@ -1,16 +1,12 @@
 from pyfbsdk import*
 from pyfbsdk_additions import*
+
 try:
     from PySide6 import QtWidgets
     from shiboken6 import wrapInstance, getCppPointer
 except:
     from PySide2 import QtWidgets
     from shiboken2 import wrapInstance, getCppPointer    
-
-# get file path for module import 
-import sys, os, inspect
-CurrentFilePath = inspect.currentframe().f_code.co_filename
-sys.path.append(os.path.dirname(CurrentFilePath))
 
 import UIdiscription
 
@@ -19,7 +15,7 @@ class WigHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
         self.HoldedWidgetObject = UIdiscription.HoldedWidget(wrapInstance(pWigParent,
                                                              QtWidgets.QWidget))
-        return getCppPointer(self.HoldedWidgetObject)[-1]
+        return getCppPointer(self.HoldedWidgetObject)[0]
 
 # declare as FBTool 
 class WigTool(FBTool):
@@ -38,9 +34,10 @@ class WigTool(FBTool):
         self.StartSizeX = 300
         self.StartSizeY = 300
 
+# set Tool name
 toolName = "ActorSetHelper"
 
-# Delete The Tool if exists
+# delete the Tool if exists
 FBDestroyToolByName(toolName)
 
 tool = WigTool(toolName)

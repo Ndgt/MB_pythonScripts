@@ -1,6 +1,6 @@
 from pyfbsdk import*
 
-def checkExistinGroup():
+def checkExistingGroup():
     for cha in FBSystem().Scene.Characters:
         for grp in FBSystem().Scene.Groups:
             if grp.Name in (cha.Name + "/Skeleton", cha.Name + "/Mesh"):
@@ -95,7 +95,7 @@ def SurveyAll():
                         + "Reference : " + refResult,
                         "OK")
 
-            if not checkExistinGroup():
+            if not checkExistingGroup():
                 SkeletonGroup(chara, "g")
                 MeshGroup(chara, "g")
                 FBMessageBox("Result",
@@ -132,7 +132,7 @@ if __name__ in ("__main__", "builtins"):
                         + "Reference : " + refResult,
                         "OK")
 
-            if not checkExistinGroup():
+            if not checkExistingGroup():
                 SkeletonGroup(chara, "g")
                 MeshGroup(chara, "g")
                 FBMessageBox("Result",
