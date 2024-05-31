@@ -1,4 +1,9 @@
 from pyfbsdk import FBMessageBox
+
+'''
+import your module here
+'''
+
 import charainfo
 
 try:    
@@ -9,7 +14,7 @@ except:
     from PySide2.QtCore import*
     from PySide2.QtWidgets import*    
 
-
+# get access of Viewer menu widget
 def main():
     for win in QApplication.topLevelWidgets():  
         if win.accessibleName() == "Mainboard":
@@ -17,7 +22,7 @@ def main():
                 if dwgt.windowTitle() == "Viewer":
                     GetMenuwgtInfo(dwgt)
 
-
+# search and get information of display button in Viewer menu widget
 def GetMenuwgtInfo(wgt:QDockWidget):
     lymng = wgt.layout()
     for i in range(lymng.count()):
@@ -31,16 +36,25 @@ def GetMenuwgtInfo(wgt:QDockWidget):
                                 displayGeo = menu.geometry()
                                 CreateMenu(viewerMenuwgt,displayGeo)
                                 
-
+# create original menu
 def CreateMenu(viewerMenuwgt, displayGeo):
+    # create a button and change the caption as you like
     button = QPushButton("charainfo",viewerMenuwgt)
+
+    # set the size of button
     x = displayGeo.right() + 80
     y = displayGeo.top()
     w = 70
     h = displayGeo.bottom()-displayGeo.top()
     button.setGeometry(x,y,w,h)
-    button.clicked.connect(charainfo.SurveyAll)
+
+    # set the style of the button
     button.setStyleSheet("color: black; background-color:#ADD8E6;")
+
+    # connect your module methods to the button
+    button.clicked.connect(charainfo.SurveyAll)
+
+    # show button
     button.show()
 
 main()
