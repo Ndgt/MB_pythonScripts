@@ -12,7 +12,7 @@ def RunStartUp(pOjbect, pEventName):
     if StartUp==-1:
         print("RunStartUp")
         StartUp=0
-        print(FBApplication().ExecuteScript(r"C:\\Users\\owner\\vscode\\MB_pythonScripts\\src\\AddModuleButton.py"))
+        print(FBApplication().ExecuteScript(r"Users module"))
     
     else:
         print("EventOff")
