@@ -13,13 +13,13 @@ except:
     from PySide2 import QtWidgets
     from shiboken2 import wrapInstance, getCppPointer    
 
-import UIdescription
+import UIfunctions
 
 
 # Qtウィジェットを子とする親のMotionBuilderウィジェットを定義
 class WidgetHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
-        self.ParentedWidgetObject = UIdescription.ParentedWidget(wrapInstance(pWigParent, QtWidgets.QWidget))
+        self.ParentedWidgetObject = UIfunctions.ParentedWidget(wrapInstance(pWigParent, QtWidgets.QWidget))
         return getCppPointer(self.ParentedWidgetObject)[0]
 
 
