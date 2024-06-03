@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from pyfbsdk import*
 from pyfbsdk_additions import*
 
@@ -8,10 +6,7 @@ try:
 except: 
     from PySide2 import QtWidgets
 
-
 from ui_mainwidget import Ui_toolWidget
-import BodyIndex
-
 
 class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
     def __init__(self, pWidgetHolder):
@@ -30,10 +25,8 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
         self.defaultVectorList = list()
         self.pivotPropertyList = list()
         self.offsetPropertyList = list()
-
         self.actor = FBActor("HubActor")
         self.actor.MarkerSet = FBMarkerSet("MarkersetToHubActor")
-        
         # extract enum in FBSkeletonNodeId class 
         self.SNodeIdList = list(vars(FBSkeletonNodeId)["values"].values())
         # set lists to hold default positions(pivot positions) and offsets of each parts in Actor
@@ -55,22 +48,22 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
 
     # function to Put Actor nearby selecetd Model
     def FitToTrackers(self):
-        targetmodel = FBModelList()
-        targetposition = FBVector3d()
-        FBGetSelectedModels(targetmodel)
+        self.target = FBModelList()
+        self.targetposition = FBVector3d()
+        FBGetSelectedModels(self.target)
         # target[0]:selected Model
         # FBModel.GetVector returns a vector from the model
-        targetmodel[0].GetVector(targetposition, FBModelTransformationType.kModelTransformation)
-        self.actor.SetActorTranslation(targetposition)
+        self.target[0].GetVector(self.targetposition, FBModelTransformationType.kModelTransformation)
+        self.actor.SetActorTranslation(self.targetposition)
 
 
     # function to Rotate Actor by 180 degrees around Y-axis
     def RotateYdeg(self):
         rlist = FBVector3d()
-        # get rotation vector of Actor hips
-        self.actor.GetDefinitionRotationVector(BodyIndex.AllActorIndex.values[0],rlist) 
-        # Add rotation by 180 degrees
-        self.actor.SetDefinitionRotationVector(BodyIndex.AllActorIndex.values[0],rlist + FBVector3d(0,180,0))
+        # SNodeIdList[1]: Hips Bone of Actor
+        self.actor.GetDefinitionRotationVector(self.SNodeIdList[1],rlist) 
+        # rotate Actor
+        self.actor.SetDefinitionRotationVector(self.SNodeIdList[1],rlist + FBVector3d(0,180,0))       
 
 
     # function to force Actor to T-Pose
@@ -110,9 +103,9 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
 
     # function to change the Size of Actor 
     # int: returned by Qt horizontalSlider when slider Moved
-    def AdjustActorSize(self,int):
-        for index in BodyIndex.AllActorIndex.values:
-            self.actor.SetDefinitionScaleVector(index,FBVector3d(int/50,int/50,int/50)) 
+    def AdjustActorSize(self, int):
+        for i in self.ActorPartsIndex:
+            self.actor.SetDefinitionScaleVector(self.SNodeIdList[i],FBVector3d(int/50,int/50,int/50))   
 
 
     # function to register Trackers as Marker

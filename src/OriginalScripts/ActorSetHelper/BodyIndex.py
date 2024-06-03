@@ -35,7 +35,6 @@ MarkerSetIndex = {
 
 
 AllActorIndex = {
-    -1: pyfbsdk.FBSkeletonNodeId.kFBSkeletonInvalidIndex,
     0: pyfbsdk.FBSkeletonNodeId.kFBSkeletonHipsIndex,
     1: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftHipIndex,
     2: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftKneeIndex,
@@ -87,6 +86,4 @@ AllActorIndex = {
     48: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightPinkyAIndex,
     49: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightPinkyBIndex,
     50: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightPinkyCIndex,
-    51: pyfbsdk.FBSkeletonNodeId.kFBSkeletonReferenceIndex,
-    52: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLastIndex
 }
