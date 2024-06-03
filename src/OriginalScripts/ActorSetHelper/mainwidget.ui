@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>testWidget</class>
- <widget class="QWidget" name="testWidget">
+ <class>toolWidget</class>
+ <widget class="QWidget" name="toolWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -86,7 +86,7 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="DefaultTPoseButton">
          <property name="sizePolicy">
@@ -174,7 +174,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QPushButton" name="bindButton">
          <property name="sizePolicy">

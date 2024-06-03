@@ -1,47 +1,34 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWidgetUI.ui'
+## Form generated from reading UI file 'mainwidget.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-try:
-    from PySide6 import QtCore
-    from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-        QMetaObject, QObject, QPoint, QRect,
-        QSize, QTime, QUrl, Qt)
-    from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-        QFont, QFontDatabase, QGradient, QIcon,
-        QImage, QKeySequence, QLinearGradient, QPainter,
-        QPalette, QPixmap, QRadialGradient, QTransform)
-    from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QPushButton,
-        QSizePolicy, QSlider, QVBoxLayout, QWidget)
+from PySide6 import QtCore
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QPushButton,
+    QSizePolicy, QSlider, QVBoxLayout, QWidget)
 
-except:
-    from PySide2 import QtCore
-    from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-        QMetaObject, QObject, QPoint, QRect,
-        QSize, QTime, QUrl, Qt)
-    from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-        QFont, QFontDatabase, QGradient, QIcon,
-        QImage, QKeySequence, QLinearGradient, QPainter,
-        QPalette, QPixmap, QRadialGradient, QTransform)
-    from PySide2.QtWidgets import (QApplication, QHBoxLayout, QLabel, QPushButton,
-        QSizePolicy, QSlider, QVBoxLayout, QWidget)
-
-class Ui_testWidget(object):
-    def setupUi(self, testWidget):
-        if not testWidget.objectName():
-            testWidget.setObjectName(u"testWidget")
-        testWidget.resize(328, 301)
-        self.verticalLayout_2 = QVBoxLayout(testWidget)
+class Ui_toolWidget(object):
+    def setupUi(self, toolWidget):
+        if not toolWidget.objectName():
+            toolWidget.setObjectName(u"toolWidget")
+        toolWidget.resize(328, 301)
+        self.verticalLayout_2 = QVBoxLayout(toolWidget)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.CreateButton = QPushButton(testWidget)
+        self.CreateButton = QPushButton(toolWidget)
         self.CreateButton.setObjectName(u"CreateButton")
         self.CreateButton.setEnabled(True)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -58,7 +45,7 @@ class Ui_testWidget(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.fitActorButton = QPushButton(testWidget)
+        self.fitActorButton = QPushButton(toolWidget)
         self.fitActorButton.setObjectName(u"fitActorButton")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Expanding)
         sizePolicy1.setHorizontalStretch(0)
@@ -69,7 +56,7 @@ class Ui_testWidget(object):
 
         self.horizontalLayout.addWidget(self.fitActorButton)
 
-        self.RotateButton = QPushButton(testWidget)
+        self.RotateButton = QPushButton(toolWidget)
         self.RotateButton.setObjectName(u"RotateButton")
         sizePolicy1.setHeightForWidth(self.RotateButton.sizePolicy().hasHeightForWidth())
         self.RotateButton.setSizePolicy(sizePolicy1)
@@ -80,28 +67,28 @@ class Ui_testWidget(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.DefaultTPoseButton = QPushButton(testWidget)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.DefaultTPoseButton = QPushButton(toolWidget)
         self.DefaultTPoseButton.setObjectName(u"DefaultTPoseButton")
         sizePolicy1.setHeightForWidth(self.DefaultTPoseButton.sizePolicy().hasHeightForWidth())
         self.DefaultTPoseButton.setSizePolicy(sizePolicy1)
         self.DefaultTPoseButton.setMinimumSize(QSize(0, 0))
 
-        self.horizontalLayout_3.addWidget(self.DefaultTPoseButton)
+        self.horizontalLayout_2.addWidget(self.DefaultTPoseButton)
 
-        self.ResetAllButton = QPushButton(testWidget)
+        self.ResetAllButton = QPushButton(toolWidget)
         self.ResetAllButton.setObjectName(u"ResetAllButton")
         sizePolicy1.setHeightForWidth(self.ResetAllButton.sizePolicy().hasHeightForWidth())
         self.ResetAllButton.setSizePolicy(sizePolicy1)
         self.ResetAllButton.setMinimumSize(QSize(0, 0))
 
-        self.horizontalLayout_3.addWidget(self.ResetAllButton)
+        self.horizontalLayout_2.addWidget(self.ResetAllButton)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
-        self.label = QLabel(testWidget)
+        self.label = QLabel(toolWidget)
         self.label.setObjectName(u"label")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.MinimumExpanding)
         sizePolicy2.setHorizontalStretch(0)
@@ -115,7 +102,7 @@ class Ui_testWidget(object):
 
         self.verticalLayout.addWidget(self.label)
 
-        self.horizontalSlider = QSlider(testWidget)
+        self.horizontalSlider = QSlider(toolWidget)
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         sizePolicy2.setHeightForWidth(self.horizontalSlider.sizePolicy().hasHeightForWidth())
         self.horizontalSlider.setSizePolicy(sizePolicy2)
@@ -127,55 +114,55 @@ class Ui_testWidget(object):
 
         self.verticalLayout.addWidget(self.horizontalSlider)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.bindButton = QPushButton(testWidget)
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.bindButton = QPushButton(toolWidget)
         self.bindButton.setObjectName(u"bindButton")
         sizePolicy1.setHeightForWidth(self.bindButton.sizePolicy().hasHeightForWidth())
         self.bindButton.setSizePolicy(sizePolicy1)
         self.bindButton.setMinimumSize(QSize(0, 0))
         self.bindButton.setFont(font)
 
-        self.horizontalLayout_2.addWidget(self.bindButton)
+        self.horizontalLayout_3.addWidget(self.bindButton)
 
-        self.snapButton = QPushButton(testWidget)
+        self.snapButton = QPushButton(toolWidget)
         self.snapButton.setObjectName(u"snapButton")
         sizePolicy.setHeightForWidth(self.snapButton.sizePolicy().hasHeightForWidth())
         self.snapButton.setSizePolicy(sizePolicy)
         self.snapButton.setMinimumSize(QSize(0, 0))
 
-        self.horizontalLayout_2.addWidget(self.snapButton)
+        self.horizontalLayout_3.addWidget(self.snapButton)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
 
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
 
 
-        self.retranslateUi(testWidget)
+        self.retranslateUi(toolWidget)
 
-        self.CreateButton.connect(QtCore.SIGNAL("clicked()"), testWidget.CreateActor_MarkerSet)
-        self.fitActorButton.connect(QtCore.SIGNAL("clicked()"), testWidget.FitToTrackers)
-        self.RotateButton.connect(QtCore.SIGNAL("clicked()"), testWidget.RotateYdeg)
-        self.DefaultTPoseButton.connect(QtCore.SIGNAL("clicked()"), testWidget.MakeActorDefaultTPose)
-        self.ResetAllButton.connect(QtCore.SIGNAL("clicked()"), testWidget.ResetAll)
-        self.horizontalSlider.connect(QtCore.SIGNAL("sliderMoved(int)"), testWidget.AdjustActorSize)
-        self.bindButton.connect(QtCore.SIGNAL("clicked()"), testWidget.BindMarkerModel)
-        self.snapButton.connect(QtCore.SIGNAL("clicked()"), testWidget.SnapActor)
+        self.CreateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.CreateActor_MarkerSet)
+        self.fitActorButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.FitToTrackers)
+        self.RotateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.RotateYdeg)
+        self.DefaultTPoseButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.MakeActorDefaultTPose)
+        self.ResetAllButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.ResetAll)
+        self.horizontalSlider.connect(QtCore.SIGNAL("sliderMoved(int)"), toolWidget.AdjustActorSize)
+        self.bindButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.BindMarkerModel)
+        self.snapButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.SnapActor)
 
-        QMetaObject.connectSlotsByName(testWidget)
+        QMetaObject.connectSlotsByName(toolWidget)
     # setupUi
 
-    def retranslateUi(self, testWidget):
-        testWidget.setWindowTitle(QCoreApplication.translate("testWidget", u"Form", None))
-        self.CreateButton.setText(QCoreApplication.translate("testWidget", u"Create Actor, MarkerSet", None))
-        self.fitActorButton.setText(QCoreApplication.translate("testWidget", u"Fit to Trackers", None))
-        self.RotateButton.setText(QCoreApplication.translate("testWidget", u"Rotate y 180 degs.", None))
-        self.DefaultTPoseButton.setText(QCoreApplication.translate("testWidget", u"Force Actor T-Pose", None))
-        self.ResetAllButton.setText(QCoreApplication.translate("testWidget", u"Reset All", None))
-        self.label.setText(QCoreApplication.translate("testWidget", u"<html><head/><body><p>Adjust Actor Size ( small &lt;--&gt; big )</p></body></html>", None))
-        self.bindButton.setText(QCoreApplication.translate("testWidget", u"Bind MarkerModel", None))
-        self.snapButton.setText(QCoreApplication.translate("testWidget", u"Snap", None))
+    def retranslateUi(self, toolWidget):
+        toolWidget.setWindowTitle(QCoreApplication.translate("toolWidget", u"Form", None))
+        self.CreateButton.setText(QCoreApplication.translate("toolWidget", u"Create Actor, MarkerSet", None))
+        self.fitActorButton.setText(QCoreApplication.translate("toolWidget", u"Fit to Trackers", None))
+        self.RotateButton.setText(QCoreApplication.translate("toolWidget", u"Rotate y 180 degs.", None))
+        self.DefaultTPoseButton.setText(QCoreApplication.translate("toolWidget", u"Force Actor T-Pose", None))
+        self.ResetAllButton.setText(QCoreApplication.translate("toolWidget", u"Reset All", None))
+        self.label.setText(QCoreApplication.translate("toolWidget", u"<html><head/><body><p>Adjust Actor Size ( small &lt;--&gt; big )</p></body></html>", None))
+        self.bindButton.setText(QCoreApplication.translate("toolWidget", u"Bind MarkerModel", None))
+        self.snapButton.setText(QCoreApplication.translate("toolWidget", u"Snap", None))
     # retranslateUi
 

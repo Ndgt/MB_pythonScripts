@@ -8,12 +8,12 @@ except:
     from PySide2 import QtWidgets
     from shiboken2 import wrapInstance, getCppPointer    
 
-import UIdiscription
+import UIdescription
 
 # declare WidgetHolder class object
 class WigHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
-        self.HoldedWidgetObject = UIdiscription.HoldedWidget(wrapInstance(pWigParent,
+        self.HoldedWidgetObject = UIdescription.HoldedWidget(wrapInstance(pWigParent,
                                                              QtWidgets.QWidget))
         return getCppPointer(self.HoldedWidgetObject)[0]
 
