@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# pyside6-uicによる自動生成ファイル
+# 追記箇所を日本語コメントアウトにて表記
+
 ################################################################################
 ## Form generated from reading UI file 'mainwidget.ui'
 ##
@@ -8,7 +11,9 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+# Signalの追記に伴い、宣言
 from PySide6 import QtCore
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -142,6 +147,7 @@ class Ui_toolWidget(object):
 
         self.retranslateUi(toolWidget)
 
+        # QtDesignerでのSignalの設定が面倒なので手作業でSignalを追記
         self.CreateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.CreateActor_MarkerSet)
         self.fitActorButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.FitToTrackers)
         self.RotateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.RotateYdeg)

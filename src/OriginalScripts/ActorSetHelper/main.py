@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from pyfbsdk import*
 from pyfbsdk_additions import*
 
@@ -14,14 +16,14 @@ except:
 import UIdescription
 
 
-# define MotionBuilder class to hold child Qt Widget
+# Qtウィジェットを子とする親のMotionBuilderウィジェットを定義
 class WidgetHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
         self.ParentedWidgetObject = UIdescription.ParentedWidget(wrapInstance(pWigParent, QtWidgets.QWidget))
         return getCppPointer(self.ParentedWidgetObject)[0]
 
 
-# define FBTool class
+# 上記ウィジェットをUIとするPython Toolを定義
 class WigTool(FBTool):
     def PopulateLayout(self):
         # Add Layout and set control in Qt widget Holder
@@ -40,14 +42,15 @@ class WigTool(FBTool):
         self.StartSizeY = 300
 
 
-# set theTool name
+# Tool名を定義
 toolName = "ActorSetHelper"
 
-# delete the Tool if exists
+# すでに同じ名前のToolが作成されていたらそれを削除
 FBDestroyToolByName(toolName)
 
-# Add the Tool into Python Tool Manager
+# 定義したToolをPython Tool Managerに追加
 tool = WigTool(toolName)
 FBAddTool(tool)
 
+# Tool を表示
 ShowTool(tool)
