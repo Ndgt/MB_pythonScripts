@@ -2,20 +2,23 @@ from pyfbsdk import*
 from pyfbsdk_additions import*
 
 try:
+    # for MotionBuilder 2025
     from PySide6 import QtWidgets
     from shiboken6 import wrapInstance, getCppPointer
+     
 except:
+    # for MotionBuilder -2024
     from PySide2 import QtWidgets
     from shiboken2 import wrapInstance, getCppPointer    
 
 import UIdescription
 
-# declare WidgetHolder class object
+
+# define MotionBuilder class to hold child Qt Widget
 class WigHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
-        self.HoldedWidgetObject = UIdescription.HoldedWidget(wrapInstance(pWigParent,
-                                                             QtWidgets.QWidget))
-        return getCppPointer(self.HoldedWidgetObject)[0]
+        self.ParentedWidgetObject = UIdescription.ParentedWidget(wrapInstance(pWigParent, QtWidgets.QWidget))
+        return getCppPointer(self.ParentedWidgetObject)[0]
 
 # declare as FBTool 
 class WigTool(FBTool):

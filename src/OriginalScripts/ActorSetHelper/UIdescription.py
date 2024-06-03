@@ -8,7 +8,7 @@ except:
 
 from ui_mainwidget import Ui_toolWidget
 
-class HoldedWidget(QtWidgets.QWidget, Ui_toolWidget()):
+class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
     def __init__(self, pWigholder):
         super().__init__(pWigholder)
         self.setupUi(self)

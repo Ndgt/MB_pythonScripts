@@ -3,32 +3,36 @@
 import pyfbsdk 
 from pyfbsdk import*
 
+
 MarkerSetIndex = {
-    # Lower Body
+    # for HipTracker
     0: pyfbsdk.FBSkeletonNodeId.kFBSkeletonHipsIndex,
-    1: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftHipIndex,
+
+    # for LeftKnee/Foot Tracker
     2: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftKneeIndex,
     3: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftAnkleIndex,
-    4: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftFootIndex,
-    5: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightHipIndex,
+
+    # for RightKnee/Foot Tracker
     6: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightKneeIndex,
     7: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightAnkleIndex,
-    8: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightFootIndex,
 
-    # Upper Body
+    # for BodyTracker
     10: pyfbsdk.FBSkeletonNodeId.kFBSkeletonChestIndex,
+
+    # for LeftShoulder/Elbow/Hand Tracker
     11: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftCollarIndex,
-    12: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftShoulderIndex,
     13: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftElbowIndex,
     14: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftWristIndex,
+
+    # for RightShoulder/Elbow/Hand Tracker
     15: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightCollarIndex,
-    16: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightShoulderIndex,
     17: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightElbowIndex,
     18: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightWristIndex,
     
-    # Head
+    # for headTracker
     20: pyfbsdk.FBSkeletonNodeId.kFBSkeletonHeadIndex,
 }
+
 
 AllActorIndex = {
     -1: pyfbsdk.FBSkeletonNodeId.kFBSkeletonInvalidIndex,
