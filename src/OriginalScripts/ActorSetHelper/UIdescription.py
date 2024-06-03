@@ -3,14 +3,14 @@ from pyfbsdk_additions import*
 
 try:
     from PySide6 import QtWidgets
-except:
+except: 
     from PySide2 import QtWidgets
 
 from ui_mainwidget import Ui_toolWidget
 
 class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
-    def __init__(self, pWigholder):
-        super().__init__(pWigholder)
+    def __init__(self, pWidgetHolder):
+        super().__init__(pWidgetHolder)
         self.setupUi(self)
         # particular number in FBSkeletonNodeId class enum
         self.ActorPartsIndex = [21, 11, 16, 12, 1, 15, 14, 19, 18, 4, 3, 8, 7, 2, 5, 6, 9, 10, 13, 17, 20]
