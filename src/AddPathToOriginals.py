@@ -10,6 +10,7 @@ systemUIIdle.RemoveAll()
 
 check = -1
 def AddPathToOriginals(arg1:FBSystem, arg2:FBEvent):
+    
     # 再度AddPathToOriginals関数が実行された時のためにcheckの値で分岐
     global check
     if check == -1:

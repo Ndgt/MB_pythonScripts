@@ -13,7 +13,7 @@ except:
     from PySide2 import QtWidgets
     from shiboken2 import wrapInstance, getCppPointer    
 
-import UIfunctions
+from ActorSetHelper_Source import UIfunctions
 
 class WidgetHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
