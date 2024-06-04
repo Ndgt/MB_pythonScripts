@@ -31,12 +31,14 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
         self.pivotPropertyList = list()
         self.offsetPropertyList = list()
 
+        # ActorとMarkerSetを作成
         self.actor = FBActor("HubActor")
         self.actor.MarkerSet = FBMarkerSet("MarkersetToHubActor")
         
         # extract enum in FBSkeletonNodeId class 
         self.SNodeIdList = list(vars(FBSkeletonNodeId)["values"].values())
         # set lists to hold default positions(pivot positions) and offsets of each parts in Actor
+
         for prop in self.actor.PropertyList:
             if not prop.Name.find("Position") == -1:
                 # FBPropertyAnimatableVector3d.Data returns FBVector3d class object
@@ -45,31 +47,34 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
             if not prop.Name.find("Offset") == -1 and not prop.Name == "ManipulateOffsets":
                 self.defaultOffsetList.append(prop.Data)
                 self.offsetPropertyList.append(prop)
+
         self.vlist = FBVector3d()
         self.hipsvector = FBVector3d()
         self.actor.GetDefinitionTranslationVector(self.SNodeIdList[1],self.hipsvector)
+
         for i in self.ActorPartsIndex:
             self.actor.GetDefinitionTranslationVector(self.SNodeIdList[i],self.vlist)
             self.defaultVectorList.append(self.vlist-self.hipsvector)
 
 
-    # function to Put Actor nearby selecetd Model
+    # 選択した一つのオブジェクトの位置にActorの腰を移動させる
     def FitToTrackers(self):
         targetmodel = FBModelList()
         targetposition = FBVector3d()
         FBGetSelectedModels(targetmodel)
-        # target[0]:selected Model
-        # FBModel.GetVector returns a vector from the model
+        
         targetmodel[0].GetVector(targetposition, FBModelTransformationType.kModelTransformation)
         self.actor.SetActorTranslation(targetposition)
 
 
-    # function to Rotate Actor by 180 degrees around Y-axis
+    # y軸中心にActorを180°回転させる
     def RotateYdeg(self):
         rlist = FBVector3d()
-        # get rotation vector of Actor hips
+
+        # Actorの現時点の回転座標を得る
         self.actor.GetDefinitionRotationVector(BodyIndex.AllActorIndex.values[0],rlist) 
-        # Add rotation by 180 degrees
+        
+        # 180°分の回転を加える
         self.actor.SetDefinitionRotationVector(BodyIndex.AllActorIndex.values[0],rlist + FBVector3d(0,180,0))
 
 
@@ -97,7 +102,7 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
             vectorcount += 1
                 
 
-    # function to Delete Created Actor and MarkerSet
+    # 直近に作成したActorとMarkerSetを削除し、Qt Sliderの位置を中心に戻す
     def ResetAll(self):
         self.msys = FBSystem()
         if len(self.msys.Scene.Actors) > 0 and len(self.msys.Scene.MarkerSets) > 0:  
@@ -108,29 +113,23 @@ class ParentedWidget(QtWidgets.QWidget, Ui_toolWidget()):
                 # reset Qt horizontalSlider Position
                 self.horizontalSlider.setSliderPosition(50)
 
-    # function to change the Size of Actor 
-    # int: returned by Qt horizontalSlider when slider Moved
+
+    # Qt Sliderが動いた際にint値（初期値50、1~99で変化）を受け取り、アクターのサイズを変更
     def AdjustActorSize(self,int):
         for index in BodyIndex.AllActorIndex.values:
             self.actor.SetDefinitionScaleVector(index,FBVector3d(int/50,int/50,int/50)) 
 
 
-    # function to register Trackers as Marker
+    # MarkerSetにトラッカーを登録する
     def BindMarkerModel(self):
-        self.MarkerModelList = FBModelList()
-        FBGetSelectedModels(self.MarkerModelList, None, True, True)
-        if not len(self.MarkerModelList) == 79:
-            FBMessageBox("Caution", "Choose All Models under \"RecordTarget\"", "OK")
-        else:
-            self.SkeletonNodeIdList = list()
-            for i in self.TrackerIndex:
-                self.SkeletonNodeIdList.append(self.SNodeIdList[i])
-            for i in range(13):
-                for j in range(4):
-                    self.actor.MarkerSet.AddMarker(self.SkeletonNodeIdList[i], self.MarkerModelList[(6 * i + 1) + (j + 1)])
-            FBMessageBox("message","Adding Marker was completed !\n See the HubActor Settings","OK")
+        for tracker in list(BodyIndex.MarkerSetIndex.keys()):
+            model = FBFindModelByLabelName(tracker)
+            for m in model.Children[0:4]:
+                self.actor.MarkerSet.AddMarker(BodyIndex.MarkerSetIndex[tracker],m)
+ 
+        FBMessageBox("message","Adding Marker was completed !\n See the Actor Settings","OK")
 
 
-    # function to execute Snap 
+    # Snapを実行
     def SnapActor(self):
         self.actor.Snap(FBRecalcMarkerSetOffset.kFBRecalcMarkerSetOffsetTR)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# pyside6-uic‚É‚æ‚é©“®¶¬ƒtƒ@ƒCƒ‹
-# ’Ç‹L‰ÓŠ‚ğ“ú–{ŒêƒRƒƒ“ƒgƒAƒEƒg‚É‚Ä•\‹L
+# pyside6-uicã«ã‚ˆã‚‹è‡ªå‹•ç”Ÿæˆãƒ•ã‚¡ã‚¤ãƒ«
+# è¿½è¨˜ç®‡æ‰€ã‚’æ—¥æœ¬èªã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã«ã¦è¡¨è¨˜
 
 ################################################################################
 ## Form generated from reading UI file 'mainwidget.ui'
@@ -11,7 +11,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-# Signal‚Ì’Ç‹L‚É”º‚¢AéŒ¾
+# Signalã®è¿½è¨˜ã«ä¼´ã„ã€å®£è¨€
 from PySide6 import QtCore
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
@@ -147,7 +147,7 @@ class Ui_toolWidget(object):
 
         self.retranslateUi(toolWidget)
 
-        # QtDesigner‚Å‚ÌSignal‚Ìİ’è‚ª–Ê“|‚È‚Ì‚Åèì‹Æ‚ÅSignal‚ğ’Ç‹L
+        # QtDesignerã§ã®Signalã®è¨­å®šãŒé¢å€’ãªã®ã§æ‰‹ä½œæ¥­ã§Signalã‚’è¿½è¨˜
         self.CreateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.CreateActor_MarkerSet)
         self.fitActorButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.FitToTrackers)
         self.RotateButton.connect(QtCore.SIGNAL("clicked()"), toolWidget.RotateYdeg)
@@ -171,4 +171,3 @@ class Ui_toolWidget(object):
         self.bindButton.setText(QCoreApplication.translate("toolWidget", u"Bind MarkerModel", None))
         self.snapButton.setText(QCoreApplication.translate("toolWidget", u"Snap", None))
     # retranslateUi
-

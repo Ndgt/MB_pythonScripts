@@ -6,31 +6,31 @@ from pyfbsdk import*
 
 MarkerSetIndex = {
     # for HipTracker
-    0: pyfbsdk.FBSkeletonNodeId.kFBSkeletonHipsIndex,
+    "HipTracker"            : pyfbsdk.FBSkeletonNodeId.kFBSkeletonHipsIndex,
 
     # for LeftKnee/Foot Tracker
-    2: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftKneeIndex,
-    3: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftAnkleIndex,
+    "LeftKneeTracker"       : pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftKneeIndex,
+    "LeftFootTracker"       : pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftAnkleIndex,
 
     # for RightKnee/Foot Tracker
-    6: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightKneeIndex,
-    7: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightAnkleIndex,
+    "RightKneeTracker"      : pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightKneeIndex,
+    "RightFootTracker"      : pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightAnkleIndex,
 
     # for BodyTracker
-    10: pyfbsdk.FBSkeletonNodeId.kFBSkeletonChestIndex,
+    "BodyTracker"           : pyfbsdk.FBSkeletonNodeId.kFBSkeletonChestIndex,
 
     # for LeftShoulder/Elbow/Hand Tracker
-    11: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftCollarIndex,
-    13: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftElbowIndex,
-    14: pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftWristIndex,
+    "LeftShoulderTracker"   : pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftCollarIndex,
+    "LeftElbowTracker"      : pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftElbowIndex,
+    "LeftHandTracker"       : pyfbsdk.FBSkeletonNodeId.kFBSkeletonLeftWristIndex,
 
     # for RightShoulder/Elbow/Hand Tracker
-    15: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightCollarIndex,
-    17: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightElbowIndex,
-    18: pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightWristIndex,
+    "RightShoulderTracker"  : pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightCollarIndex,
+    "RightElbowTracker"     : pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightElbowIndex,
+    "RightHandTracker"      : pyfbsdk.FBSkeletonNodeId.kFBSkeletonRightWristIndex,
     
     # for headTracker
-    20: pyfbsdk.FBSkeletonNodeId.kFBSkeletonHeadIndex,
+    "headTracker": pyfbsdk.FBSkeletonNodeId.kFBSkeletonHeadIndex,
 }
 
 

@@ -15,18 +15,14 @@ except:
 
 import UIfunctions
 
-
-# Qtウィジェットを子とする親のMotionBuilderウィジェットを定義
 class WidgetHolder(FBWidgetHolder):
     def WidgetCreate(self, pWigParent):
         self.ParentedWidgetObject = UIfunctions.ParentedWidget(wrapInstance(pWigParent, QtWidgets.QWidget))
         return getCppPointer(self.ParentedWidgetObject)[0]
 
 
-# 上記ウィジェットをUIとするPython Toolを定義
 class WigTool(FBTool):
     def PopulateLayout(self):
-        # Add Layout and set control in Qt widget Holder
         x = FBAddRegionParam(0, FBAttachType.kFBAttachLeft,"")
         y = FBAddRegionParam(0, FBAttachType.kFBAttachTop,"")
         w = FBAddRegionParam(0, FBAttachType.kFBAttachRight,"")
@@ -42,15 +38,11 @@ class WigTool(FBTool):
         self.StartSizeY = 300
 
 
-# Tool名を定義
 toolName = "ActorSetHelper"
 
-# すでに同じ名前のToolが作成されていたらそれを削除
 FBDestroyToolByName(toolName)
 
-# 定義したToolをPython Tool Managerに追加
 tool = WigTool(toolName)
 FBAddTool(tool)
 
-# Tool を表示
 ShowTool(tool)
